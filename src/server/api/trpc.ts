@@ -28,11 +28,11 @@ export const createTRPCContext = (opts: CreateNextContextOptions) => {
   const { req } = opts;
   const session = getAuth(req);
 
-  const user = session.user;
+  const userId = session.userId;
 
   return {
     prisma,
-    currentUser: user,
+    userId,
   };
 };
 
@@ -46,19 +46,12 @@ export const createTRPCContext = (opts: CreateNextContextOptions) => {
 import { TRPCError, initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-import { getAuth } from "@clerk/nextjs/dist/server/getAuth";
+import { getAuth } from "@clerk/nextjs/server";
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
-  errorFormatter({ shape, error }) {
-    return {
-      ...shape,
-      data: {
-        ...shape.data,
-        zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
-      },
-    };
+  errorFormatter({ shape }) {
+    return shape;
   },
 });
 
@@ -86,7 +79,7 @@ export const createTRPCRouter = t.router;
 export const publicProcedure = t.procedure;
 
 const enforceUserIsAuthenticated = t.middleware(async ({ ctx, next }) => {
-  if (!ctx.currentUser) {
+  if (!ctx.userId) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
     });
@@ -94,7 +87,7 @@ const enforceUserIsAuthenticated = t.middleware(async ({ ctx, next }) => {
 
   return next({
     ctx: {
-      currentUser: ctx.currentUser,
+      userId: ctx.userId,
     },
   });
 });
