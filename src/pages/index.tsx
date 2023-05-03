@@ -123,7 +123,7 @@ const Home: NextPage = () => {
       <div className="flex border-b border-slate-600 p-4">
         {!isSignedIn && (
           <div className="flex justify-center">
-            <SignInButton mode="modal" redirectUrl="window.location.href">
+            <SignInButton mode="modal">
               <button className="btn">Sign in</button>
             </SignInButton>
           </div>
