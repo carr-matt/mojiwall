@@ -7,6 +7,42 @@ import toast from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
 import { IoSend } from "react-icons/io5";
+import { TypeAnimation } from "react-type-animation";
+
+const GreetingAnimation = () => {
+  return (
+    <TypeAnimation
+      sequence={[
+        "Sign in with GitHub and add to the wall!",
+        2000,
+        "",
+        2000,
+        "🤠  👻  👀  🌼  😻",
+        2000,
+        "❤️  🔥  💜  👽  🐸",
+        2000,
+        "🍿 💻 🔋 🪫 🔌",
+        2000,
+        "😀😃😆😂🤣",
+        2000,
+        "🥰 😍 🤩 😘 😗",
+        2000,
+        "🤔 🤨 😐 😑 😶",
+        2000,
+        () => {
+          console.log("Sequence completed");
+        },
+      ]}
+      wrapper="span"
+      cursor={true}
+      repeat={Infinity}
+      speed={45}
+      deletionSpeed={85}
+      omitDeletionAnimation={false}
+      className="px-3 text-3xl font-thin text-white"
+    />
+  );
+};
 
 const CreatePost = () => {
   const { user } = useUser();
@@ -114,6 +150,7 @@ const Home: NextPage = () => {
                 Sign in
               </button>
             </SignInButton>
+            <GreetingAnimation />
           </div>
         )}
         {isSignedIn && <CreatePost />}
