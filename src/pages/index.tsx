@@ -104,27 +104,15 @@ const Home: NextPage = () => {
   // Return empty div if user is not loaded
   if (!userLoaded) return <div />;
 
-  //   return (
-  //     <PageLayout>
-  //       <div className="flex border-b border-slate-600 p-4">
-  //         {!isSignedIn && (
-  //           <div className="flex justify-center">
-  //             <SignInButton />
-  //           </div>
-  //         )}
-  //         {isSignedIn && <CreatePost />}
-  //       </div>
-  //       <Feed />
-  //     </PageLayout>
-  //   );
-  // };
   return (
     <PageLayout>
       <div className="flex border-b border-slate-600 p-4">
         {!isSignedIn && (
           <div className="flex justify-center">
             <SignInButton mode="modal">
-              <button className="btn">Sign in</button>
+              <button className="rounded-full bg-blue-500 px-4 py-2 font-semibold text-white transition duration-200 ease-in hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Sign in
+              </button>
             </SignInButton>
           </div>
         )}
