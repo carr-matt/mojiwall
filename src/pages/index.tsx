@@ -13,8 +13,10 @@ const GreetingAnimation = () => {
   return (
     <TypeAnimation
       sequence={[
-        "Sign in with GitHub and add to the wall!",
-        2000,
+        "Sign in with Github...",
+        1800,
+        "...and add to the wall!",
+        3500,
         "",
         2000,
         "🤠  👻  👀  🌼  😻",
@@ -29,9 +31,9 @@ const GreetingAnimation = () => {
         2000,
         "🤔 🤨 😐 😑 😶",
         2000,
-        () => {
-          console.log("Sequence completed");
-        },
+        // () => {
+        //   console.log("Sequence completed");
+        // },
       ]}
       wrapper="span"
       cursor={true}
@@ -39,7 +41,7 @@ const GreetingAnimation = () => {
       speed={45}
       deletionSpeed={85}
       omitDeletionAnimation={false}
-      className="px-3 text-3xl font-thin text-white"
+      className="px-3 align-middle font-thin text-white"
     />
   );
 };
@@ -144,20 +146,22 @@ const Home: NextPage = () => {
     <PageLayout>
       <div className="flex border-b border-slate-600 p-4">
         {!isSignedIn && (
-          <div className="flex justify-center">
+          <div className="">
             <SignInButton mode="modal">
-              <button className="rounded-full bg-blue-500 px-4 py-2 font-semibold text-white transition duration-200 ease-in hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Sign in
+              <button className="rounded-full bg-[#1D9BF0] px-4 py-2 font-semibold text-white transition duration-200 ease-in hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Sign&nbsp;in
               </button>
             </SignInButton>
-            <GreetingAnimation />
+            <span className="text-2xl min-[405px]:text-3xl">
+              <GreetingAnimation />
+            </span>
           </div>
         )}
         {isSignedIn && <CreatePost />}
       </div>
 
       <Feed />
-      <div className="flex items-center justify-between p-4 text-xl">
+      <div className="flex items-center justify-between bg-[#1D9BF0] px-4 py-2 text-xl">
         <a href="https://github.com/carr-matt/mojiwall">
           <div className="flex items-center justify-center gap-2">
             <svg
