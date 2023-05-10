@@ -41,7 +41,7 @@ const GreetingAnimation = () => {
       speed={45}
       deletionSpeed={85}
       omitDeletionAnimation={false}
-      className="px-3 align-middle font-thin text-white"
+      className="pl-3 pr-0 align-middle font-thin text-white"
     />
   );
 };
