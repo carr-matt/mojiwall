@@ -165,7 +165,7 @@ const Home: NextPage = () => {
       <div className="sticky bottom-0 z-40 flex items-center justify-center rounded-t-md border border-sky-400 bg-[#1D9BF0]/75 px-4 py-2 text-xl backdrop-blur-md">
         <div className="align-baseline font-mono text-base">MojiWall</div>
         <div className="font-thin">&nbsp;·&nbsp;</div>
-        <a href="https://github.com/carr-matt/mojiwall">
+        <a href="https://github.com/carr-matt/mojiwall" target="_blank">
           <div className="flex items-center justify-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
