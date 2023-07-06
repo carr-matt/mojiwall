@@ -1,12 +1,11 @@
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { api } from "~/utils/api";
-import { LoadingPage, LoadingSpinner } from "~/components/loading";
+import { LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
-// import { IoSend } from "react-icons/io5";
 import { TypeAnimation } from "react-type-animation";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
@@ -32,9 +31,6 @@ const GreetingAnimation = () => {
         2000,
         "🤔 🤨 😐 😑 😶",
         2000,
-        // () => {
-        //   console.log("Sequence completed");
-        // },
       ]}
       wrapper="span"
       cursor={true}
@@ -118,8 +114,8 @@ const Feed = () => {
 
   if (postsLoading)
     return (
-      <div className="flex grow">
-        <LoadingPage />
+      <div className="flex flex-grow items-center justify-center">
+        <div className="animate-ping text-8xl">😃</div>
       </div>
     );
 
@@ -163,14 +159,17 @@ const Home: NextPage = () => {
 
       <Feed />
       <div className="sticky bottom-0 z-40 flex items-center justify-center rounded-t-md border border-sky-400 bg-[#1D9BF0]/75 px-4 py-2 text-xl backdrop-blur-md">
-        <div className="align-baseline font-mono text-base">MojiWall</div>
+        <div className="flex items-center justify-center gap-2">
+          <div className="animate-bounce">😃</div>
+          <div className="align-baseline font-mono text-base">MojiWall</div>
+        </div>
         <div className="font-thin">&nbsp;·&nbsp;</div>
         <a href="https://github.com/carr-matt/mojiwall" target="_blank">
           <div className="flex items-center justify-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="white"
             >

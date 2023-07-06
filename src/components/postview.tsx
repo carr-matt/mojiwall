@@ -14,7 +14,7 @@ export const PostView = (props: PostWithUser) => {
       <div className="-z-1 h-1 w-full bg-gradient-to-r from-transparent via-indigo-900 to-transparent" />
       <div
         key={post.id}
-        className="m-0 flex gap-3 rounded-md border border-purple-900 bg-indigo-950 p-4 shadow-sm"
+        className="m-0 flex gap-3 rounded-md border border-purple-900 bg-indigo-950 p-4 shadow-sm transition hover:ease-in-out hover:md:scale-105"
       >
         <Link href={`/@${author.username}`}>
           <Image
